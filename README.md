@@ -1,4 +1,4 @@
-# fda-covid-faq-scraper
+# FDA COVID-19 FAQ web scraper
 
 This is a basic web scraper for [Food and Drug Administration (FDA) frequently asked questions page](https://www.fda.gov/emergency-preparedness-and-response/coronavirus-disease-2019-covid-19/coronavirus-disease-2019-covid-19-frequently-asked-questions) related to the COVID-19 pandemic.
 
