@@ -4,4 +4,13 @@ This is a basic web scraper for [Food and Drug Administration (FDA) frequently a
 
 The scraper outputs a CSV file with the questions and answers in separate columns.
 
-Note: Relative links have not yet been converted to absolute links in the output CSV. The relative links will be broken until the script converts them to absolute links. 
+## Dependencies
+- python
+- pandas
+- requests
+- beautiful soup (bs4)
+- time
+- unicodedata
+
+## Enhancements needed
+Relative links have not yet been converted to absolute links in the output CSV. The relative links will be broken until the script converts them to absolute links. 
