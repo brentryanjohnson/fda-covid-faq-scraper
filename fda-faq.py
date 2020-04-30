@@ -25,9 +25,17 @@ for question in questions:
 
 answer_list = []
 for answer in answers:
+#    print(type(answer))
+#    print(answer)
+#    print(answer is None)
 #    answer = answer.find('p')
     if answer is not None:
-        answer_list.append(answer)   
+#        answer_string = unicode(answer.string)
+        answer_string = str(answer)
+        print(answer_string)
+        print(type(answer_string))
+        clean_answer = answer_string.replace('href="/', 'href="https://www.fda.gov/')
+        answer_list.append(clean_answer)
 
 # print(question_list)
 # print(answer_list)
