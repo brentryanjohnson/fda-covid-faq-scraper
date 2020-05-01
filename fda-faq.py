@@ -18,30 +18,8 @@ soup = BeautifulSoup(r.text, 'html.parser')
 questions = soup.select('.panel-heading .panel-title')
 answers = soup.select('.panel-collapse .panel-body')
 
-question_list = []
-for question in questions:
-    question = question.find('a').text
-    question_list.append(question)
-
-answer_list = []
-for answer in answers:
-#    print(type(answer))
-#    print(answer)
-#    print(answer is None)
-#    answer = answer.find('p')
-    if answer is not None:
-#        answer_string = unicode(answer.string)
-        answer_string = str(answer)
-        print(answer_string)
-        print(type(answer_string))
-        clean_answer = answer_string.replace('href="/', 'href="https://www.fda.gov/')
-        answer_list.append(clean_answer)
-
-# print(question_list)
-# print(answer_list)
-
 # Removes attributes from html output, except img and a attributes
-def remove_attributes(answer_list):
+def remove_attributes(answers):
     whitelist = ['a','img']
     for tag in soup.find_all(True):
         if tag.name not in whitelist:
@@ -51,9 +29,26 @@ def remove_attributes(answer_list):
             for attr in attrs:
                 if attr not in ['src','href']:
                     del tag.attrs[attr]
-    return answer_list
+    return answers
 
-answer_list = remove_attributes(answer_list)
+answers = remove_attributes(answers)
+
+# Creates lists with Qs and As
+question_list = []
+for question in questions:
+    question = question.find('a').text
+    question_list.append(question)
+
+answer_list = []
+for answer in answers:
+#    answer = answer.find('p')
+    if answer is not None:
+        answer_string = str(answer)
+        answer_anchors = answer_string.replace('href="/', 'href="https://www.fda.gov/')
+        answer_list.append(answer_anchors)
+
+# print(question_list)
+# print(answer_list)
 
 # Merges questions and answers via zip
 merged_qa = list(zip(question_list, answer_list))
