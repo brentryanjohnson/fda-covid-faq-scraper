@@ -13,4 +13,4 @@ The scraper outputs a CSV file with the questions and answers in separate column
 - unicodedata
 
 ## Enhancements needed
-Relative links have not yet been converted to absolute links in the output CSV. The relative links will be broken until the script converts them to absolute links. 
+~~Relative links have not yet been converted to absolute links in the output CSV. The relative links will be broken until the script converts them to absolute links.~~ Fixed 5/1/20
