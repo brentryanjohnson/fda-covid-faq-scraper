@@ -20,9 +20,9 @@ answers = soup.select('.panel-collapse .panel-body')
 
 # Removes attributes from html output, except img and a attributes
 def remove_attributes(answers):
-    whitelist = ['a','img']
+    leavealone = ['a','img']
     for tag in soup.find_all(True):
-        if tag.name not in whitelist:
+        if tag.name not in leavealone:
             tag.attrs = {}
         else:
             attrs = dict(tag.attrs)
